@@ -2,6 +2,9 @@
     <div class="page-header">
         <h1>Guests</h1>
     </div>
+    <div>
+        <img data-ng-repeat='user in asdf' class='image-response img-circle' ng-click="test(user)" src='http://staging.conartistcollective.com/{{user.avatar}}' />
+    </div>
     <div class="list-group">
         <a data-ng-repeat="guest in guests" data-ng-href="/#!/guests/{{guest._id}}" class="list-group-item">
 			<small class="list-group-item-text">

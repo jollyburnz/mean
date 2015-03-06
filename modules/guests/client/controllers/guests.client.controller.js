@@ -5,6 +5,26 @@ angular.module('guests').controller('GuestsController', ['$scope', '$stateParams
 	function($scope, $stateParams, $location, Authentication, Guests ) {
 		$scope.authentication = Authentication;
 
+		var request = new XMLHttpRequest();
+		var params = "token=P58x6G1S99Pu4TXdVMEd6PAn3K2tOYNz";
+		request.open('POST', 'https://conartistcollective.com/api/users/all', true);
+		request.onreadystatechange = function() {
+			if (request.readyState==4) {
+				var json = request.response;
+				var obj = JSON.parse(json);
+				$scope.asdf = obj.data;
+				console.log(obj, obj.data, $scope);
+				window.asdf = $scope.asdf;
+				//console.log($scope.asdf, 'response');
+				$scope.$apply();
+
+			}
+		};
+		request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		request.setRequestHeader("Content-length", params.length);
+		request.setRequestHeader("Connection", "close");
+		request.send(params);
+
 		// Create new Guest
 		$scope.create = function() {
 			// Create new Guest object
