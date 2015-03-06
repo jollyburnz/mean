@@ -6,7 +6,7 @@ angular.module('guests').controller('GuestsController', ['$scope', '$stateParams
 		$scope.authentication = Authentication;
 
 		var request = new XMLHttpRequest();
-		var params = "token=P58x6G1S99Pu4TXdVMEd6PAn3K2tOYNz";
+		var params = 'token=sjxNDqpgy38zmd8b2017dhcSgxNPW74G';
 		request.open('POST', 'https://conartistcollective.com/api/users/all', true);
 		request.onreadystatechange = function() {
 			if (request.readyState==4) {
