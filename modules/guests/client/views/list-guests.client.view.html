@@ -3,8 +3,7 @@
         <h1>Guests</h1>
     </div>
     <div>
-        {{asdf}}
-        <img data-ng-repeat='user in asdf' class='image-response img-circle' ng-click="test(user)" src='http://staging.conartistcollective.com/{{user.avatar}}' />
+        <img data-ng-repeat='user in asdf' class='image-response img-circle' ng-click="test(user)" src='https://conartistcollective.com/{{user.avatar}}' />
     </div>
     <div class="list-group">
         <a data-ng-repeat="guest in guests" data-ng-href="/#!/guests/{{guest._id}}" class="list-group-item">
@@ -21,3 +20,38 @@
     	No Guests yet, why don't you <a href="/#!/guests/create">create one</a>?
     </div>
 </section>
+
+
+<script type='text/ng-template' id='test.html'>
+<div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <a class='close-modal-bttn pull-right' ng-click="$hide()">CLOSE &nbsp;<span class='icon-close'></span></a>
+        <!--<h4 class="modal-title" ng-bind="title"></h4>-->
+        <br/>
+        <p ng-repeat='g in guests'>{{g.name}}</p>
+        <dl>
+          <dt>
+            <img style='height: 50px;width: 50px;' class='image-response img-circle' src='https://conartistcollective.com/{{current_user.avatar}}' />
+          </dt>
+          <dd>
+            <p>@{{current_user.username}}</p>
+            <p>{{current_user.first_name}} {{current_user.last_name}}</p>
+          </dd>
+        </dl>
+        <ul>
+          <li ng-repeat='guest in woah'>
+            {{guest.name}} -- {{guest.email}}
+          </li>
+        </ul>
+        <input ng-model="rad.test.email" placeholder="&nbsp;&nbsp;Email" style='font-size: 36px; clear: both; width: 100%;'><br/><br/>
+        <input ng-model="rad.test.name" placeholder="&nbsp;&nbsp;Name" style='font-size: 36px; clear: both; width: 100%;'>
+        <br/><br/>
+        <a class="btn btn-default" role="button" ng-click='checkIn()'>Check-in</a>
+      </div>
+    </div>
+  </div>
+</div>
+</script>

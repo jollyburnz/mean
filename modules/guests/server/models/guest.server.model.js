@@ -16,9 +16,19 @@ var GuestSchema = new Schema({
 		required: 'Please fill Guest name',
 		trim: true
 	},
-	created: {
+	email: {
+		type: String,
+		trim: true,
+		default: '',
+		match: [/.+\@.+\..+/, 'Please fill a valid email address']
+	},
+	signedin: {
 		type: Date,
 		default: Date.now
+	},
+	member: {
+		type: String,
+		default: ''
 	},
 	user: {
 		type: Schema.ObjectId,
@@ -27,3 +37,12 @@ var GuestSchema = new Schema({
 });
 
 mongoose.model('Guest', GuestSchema);
+
+
+// Sing In Timestamp
+// Member
+// Guest Name
+// Guest Sign in
+// Guest Sign out
+// Guest Total
+// Guest Email
